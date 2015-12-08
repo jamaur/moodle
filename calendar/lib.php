@@ -2736,9 +2736,11 @@ class calendar_information {
                 $this->time = time();
             }
         } else if (!empty($time)) {
-            $this->time = $time;
+            $date = usergetdate($time);
+            $this->time = make_timestamp($date['year'], $date['mon'], $date['mday']);
         } else {
-            $this->time = time();
+            $date = usergetdate(time());
+            $this->time = make_timestamp($date['year'], $date['mon'], $date['mday']);
         }
     }
 
